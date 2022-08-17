@@ -53,7 +53,7 @@
 <script>
 
 
-let number =Math.floor(Math.random()*100) ;
+let num =Math.floor(Math.random()*100) ;
 
 let score = 9;
 let chances = document.getElementById('chances');
@@ -62,30 +62,31 @@ let chances = document.getElementById('chances');
 
 function Onclick() {
     let inputNum = prompt("Enter the number:");
+
     if(score == 0){
          alert('you lost try again...!!');
          location.reload();
-    };
-    if(inputNum == 0){
+    }
+    else if(inputNum == 0 && inputNum < 0 && inputNum > 100  ){
          alert("Please input a valid number...!!")
     }
-    else if(inputNum > number){
+    
+    else if(inputNum > num){
         alert('number is smaller...!!');
         score -= 1;
         chances.innerHTML = score;
 
-        console.log(score);
-    }else if(inputNum < number){
+    }else if(inputNum < num){
         alert("number is bigger...!!");
         score -=1;
         chances.innerHTML = score;
 
-        console.log(score);
-
-    }else{
+    }else if(inputNum == num){
         alert("you won the game..!!");
         location.reload();
         
+    }else{
+        alert("Please input a valid number...!!")
     }
 
 }
