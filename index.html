@@ -63,29 +63,33 @@ let chances = document.getElementById('chances');
 function Onclick() {
     let inputNum = prompt("Enter the number:");
 
-    if(score == 0){
+
+    if(inputNum <= 0 || inputNum > 100){
+         alert("Please input a number between 1-100.");
+         console.log(hajsmdjks,db);
+    }
+    else if(score == 0){
          alert('you lost try again...!!');
          location.reload();
     }
-    else if(inputNum == 0 && inputNum < 0 && inputNum > 100  ){
-         alert("Please input a valid number...!!")
-    }
-    
     else if(inputNum > num){
         alert('number is smaller...!!');
         score -= 1;
         chances.innerHTML = score;
 
-    }else if(inputNum < num){
+    }
+    else if(inputNum < num){
         alert("number is bigger...!!");
         score -=1;
         chances.innerHTML = score;
 
-    }else if(inputNum == num){
+    }
+    else if(inputNum == num){
         alert("you won the game..!!");
         location.reload();
         
-    }else{
+    }
+    else{
         alert("Please input a valid number...!!")
     }
 
