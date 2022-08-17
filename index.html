@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .container{
+            margin: auto;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(88, 88, 88);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 60px;
+            text-align: center;
+        }
+        button{
+            background-color: rgb(149, 20, 20);
+            border-radius: 50px;
+            padding: 3vw;
+            color: white;
+            margin: 40px;
+            font-size: 4vw;
+            border: none;
+            box-shadow: 0px 00px 20px rgb(0, 0, 0);
+        }
+        button:hover{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <h4> GUESS THE NUMBER BETWEEN 1-100</h4>
+        <p >Attempts Left <span >&#8595;</span><span>&#8595;</span></p>
+        <h1 id="chances"></h1>
+    <button onclick="Onclick();"><h2>Click here</h2> </button>
+    </div>
+    
+</body>
+</html>
+<script>
+
+
+let number =Math.floor(Math.random()*100) ;
+
+let score = 9;
+let chances = document.getElementById('chances');
+    chances.innerHTML = score;
+
+
+function Onclick() {
+    let inputNum = prompt("Enter the number:");
+    if(score == 0){
+         alert('you lost try again...!!');
+         location.reload();
+    };
+    if(inputNum == 0){
+         alert("Please input a valid number...!!")
+    }
+    else if(inputNum > number){
+        alert('number is smaller...!!');
+        score -= 1;
+        chances.innerHTML = score;
+
+        console.log(score);
+    }else if(inputNum < number){
+        alert("number is bigger...!!");
+        score -=1;
+        chances.innerHTML = score;
+
+        console.log(score);
+
+    }else{
+        alert("you won the game..!!");
+        location.reload();
+        
+    }
+
+}
+
+</script>
